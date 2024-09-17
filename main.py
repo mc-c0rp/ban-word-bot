@@ -1,5 +1,6 @@
 # лёша иди нахуй пидор
 import telebot
+import sys
 
 TOKEN = '7221171441:AAGaeYU_9zIJT9ss6IEWbs8QaJ5hm12DQIA'
 
@@ -22,7 +23,7 @@ def destroy(message):
 
         if chat_member.status == 'creator':
             bot.reply_to(message, 'пизда мэсэй...')
-            exit(0)
+            sys.exit()
         else:
             bot.reply_to(message, 'ага, соси жуй пидар')
 
