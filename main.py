@@ -15,6 +15,17 @@ def start(message):
 def link(message):
     bot.reply_to(message, "вот оно:\n`https://vm.tiktok.com/ZMr2qdHbH`", parse_mode="Markdown")
 
+@bot.message_handler(commands=['destroy'])
+def destroy(message):
+    if message.chat.type in ['group', 'supergroup']:
+        chat_member = bot.get_chat_member(message.chat.id, message.from_user.id)
+
+        if chat_member.status == 'creator':
+            bot.reply_to(message, 'пизда мэсэй...')
+            exit(0)
+        else:
+            bot.reply_to(message, 'ага, соси жуй пидар')
+
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     if any(ban_word in message.text.lower() for ban_word in ban_words):
